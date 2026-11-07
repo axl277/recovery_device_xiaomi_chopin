@@ -5,17 +5,16 @@ on:
 
 permissions:
   contents: write
-  workflows: write
 
 jobs:
   upload:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    name: Checkout repository
+  uses: actions/checkout@v4
+  with:
+    token: ${{ secrets.PAT_TOKEN }}
+    fetch-depth: 0
 
       - name: Setup branch foxtest
         run: |
