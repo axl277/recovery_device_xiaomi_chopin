@@ -10,19 +10,18 @@ jobs:
   upload:
     runs-on: ubuntu-latest
 
-    name: Checkout repository
-  uses: actions/checkout@v4
-  with:
-    token: ${{ secrets.PAT_TOKEN }}
-    fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: foxtest
+          token: ${{ secrets.PAT_TOKEN }}
+          fetch-depth: 0
 
-      - name: Setup branch foxtest
+      - name: Setup Git
         run: |
-          if git ls-remote --exit-code --heads origin foxtest; then
-            git checkout -B foxtest origin/foxtest
-          else
-            git checkout -b foxtest
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Install tools
         run: |
@@ -30,48 +29,47 @@ jobs:
           sudo apt-get install -y unzip
           pip install gdown
 
-      - name: Download ZIP
+      - name: Download ZIP from Google Drive
         run: |
           gdown "https://drive.google.com/uc?id=1_6Wt1kZ6QRi1OuKipy-o6DklqLc3ScTB" -O /tmp/twrp.zip
 
-      - name: Extract ZIP outside repository
-        run: |
-          mkdir -p /tmp/twrp-extracted
-          unzip -q /tmp/twrp.zip -d /tmp/twrp-extracted
+          test -s /tmp/twrp.zip
+          unzip -t /tmp/twrp.zip
 
-          COUNT=$(find /tmp/twrp-extracted -mindepth 1 -maxdepth 1 | wc -l)
+      - name: Extract ZIP
+        run: |
+          mkdir -p /tmp/twrp-source
+          unzip -q /tmp/twrp.zip -d /tmp/twrp-source
+
+          COUNT=$(find /tmp/twrp-source -mindepth 1 -maxdepth 1 | wc -l)
 
           if [ "$COUNT" -eq 1 ] && \
-             [ -d "$(find /tmp/twrp-extracted -mindepth 1 -maxdepth 1 -type d)" ]; then
-            SRC="$(find /tmp/twrp-extracted -mindepth 1 -maxdepth 1 -type d)"
+             [ -d "$(find /tmp/twrp-source -mindepth 1 -maxdepth 1 -type d)" ]; then
+            SRC="$(find /tmp/twrp-source -mindepth 1 -maxdepth 1 -type d)"
           else
-            SRC="/tmp/twrp-extracted"
+            SRC="/tmp/twrp-source"
           fi
 
           echo "SRC=$SRC" >> "$GITHUB_ENV"
 
       - name: Copy TWRP source
         run: |
-          # Hapus source lama, pertahankan Git dan workflow.
           find . -mindepth 1 -maxdepth 1 \
             ! -name '.git' \
             ! -name '.github' \
             -exec rm -rf -- {} +
 
-          # Salin seluruh source baru.
           cp -a "$SRC"/. .
 
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add -A
 
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No changes detected."
             exit 0
           fi
 
-          git commit -m "Upload TWRP device tree"
-          git push origin foxtest
+          git commit -m "Upload TWRP device tree from Google Drive"
+
+          git push origin HEAD:foxtest
