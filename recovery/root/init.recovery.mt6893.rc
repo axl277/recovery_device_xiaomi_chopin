@@ -1,9 +1,6 @@
 # Beanpod
 import /microtrust.rc
 
-# Vibration
-import /vibratorfeature-hal-service.rc
-
 # Mitee
 import /miteelog.rc
 import /tee-supplicant.rc
@@ -121,5 +118,4 @@ on boot
     start boot-hal-1-2
     start health-hal-2-1
     start vibratorfeature-hal-service
-    start variant-script
 
