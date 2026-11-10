@@ -1,29 +1,26 @@
 #
-# Copyright (C) 2021 The TWRP Open Source Project
+# Copyright (C) 2023 The Android Open Source Project
 #
-# Licensed under the Apache License, Version 2.0
-# http://www.apache.org/licenses/LICENSE-2.0
+# SPDX-License-Identifier: Apache-2.0
 #
 
-# Lunch (OrangeFox fox_12.1 manifest): lunch twrp_chopin-eng
-
-# Base configuration
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Recovery vendor config (TWRP/OrangeFox)
+# Inherit some common Omni stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Device-specific configuration
+# Inherit from chopin device
 $(call inherit-product, device/xiaomi/chopin/device.mk)
 
-# OrangeFox settings (ignored by plain TWRP builds)
+# Inherit from fox_chopin configs
 $(call inherit-product, device/xiaomi/chopin/fox_chopin.mk)
 
-# Device identity
 PRODUCT_DEVICE := chopin
 PRODUCT_NAME := twrp_chopin
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := 21061110AG
 PRODUCT_MANUFACTURER := Xiaomi
+
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
