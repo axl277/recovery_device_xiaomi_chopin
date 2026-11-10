@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# MTK Preloader Utils (built from source, replaces the old prebuilt binary)
+PRODUCT_PACKAGES += \
+    mtk_plpath_utils.recovery
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
@@ -71,6 +75,7 @@ PRODUCT_PACKAGES += \
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
+    libkeymaster41 \
     libpuresoftkeymasterdevice
 
 # OEM otacerts
