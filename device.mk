@@ -14,6 +14,10 @@
 # limitations under the License.
 #
 
+# Soong Namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    device/xiaomi/chopin
+
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
 
@@ -79,3 +83,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+
+# OEM otacerts (verify MIUI-signed OTA packages)
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    device/xiaomi/chopin/security/miui_releasekey
