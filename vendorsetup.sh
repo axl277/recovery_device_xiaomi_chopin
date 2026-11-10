@@ -51,7 +51,7 @@ export FOX_DELETE_AROMAFM=1
 export OF_FORCE_PREBUILT_KERNEL=1
 
 # Maintainer & Build Info
-export FOX_MAINTAINER_PATCH_VERSION="2"
+export FOX_MAINTAINER_PATCH_VERSION="1"
 export OF_MAINTAINER="Clorizz"
 
 else
