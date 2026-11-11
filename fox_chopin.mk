@@ -22,10 +22,11 @@ OF_STATUS_INDENT_LEFT := 48
 OF_STATUS_INDENT_RIGHT := 48
 OF_CLOCK_POS := 1
 
-# Flashlight (generic MTK paths, same as agate - unverified on chopin)
-OF_FLASHLIGHT_ENABLE := 1
-OF_FL_PATH1 := /sys/class/leds/torch-light0
-OF_FL_PATH2 := /sys/class/leds/torch-light1
+# Flashlight (Disabled)
+OF_FLASHLIGHT_ENABLE := 0
+
+# Vibration (Disabled)
+TW_NO_VIBRATION := true
 
 # Device stuff
 OF_USE_LEGACY_BATTERY_SERVICES := 1
