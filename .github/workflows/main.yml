@@ -21,7 +21,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       MANIFEST_BRANCH: '12.1'
-      DEVICE_TREE: 'https://github.com/axl277/recovery_device_xiaomi_chopin_test'
+      DEVICE_TREE: 'https://github.com/axl277/recovery_device_xiaomi_chopin'
       DEVICE_TREE_BRANCH: 'Fox4'
       DEVICE_PATH: 'device/xiaomi/chopin'
       DEVICE_NAME: 'chopin'
