@@ -149,7 +149,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 # Root
 BOARD_ROOT_EXTRA_FOLDERS += cust
 
-# TWRP / OrangeFox settings
+# TWRP
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
@@ -182,3 +182,6 @@ TW_NO_FASTBOOT_BOOT := true
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+
+# Vibration (Disabled)
+TW_NO_VIBRATION := true
