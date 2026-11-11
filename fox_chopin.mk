@@ -17,7 +17,7 @@ OF_DEFAULT_KEYMASTER_VERSION := 4.0
 
 # OrangeFox GUI settings (1080x2400, centered punch-hole, rounded corners)
 OF_SCREEN_H := 2400
-OF_STATUS_H := 80
+OF_STATUS_H := 104
 OF_STATUS_INDENT_LEFT := 48
 OF_STATUS_INDENT_RIGHT := 48
 OF_CLOCK_POS := 1
