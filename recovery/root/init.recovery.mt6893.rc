@@ -109,3 +109,8 @@ on property:twrp.decrypt.done=true
     stop keymaster-4-0-beanpod
     stop keymaster-4-0-mitee
     stop gatekeeper-1-0   
+
+
+# fastbootd
+on boot
+    start health-hal-2-1
