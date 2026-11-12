@@ -182,6 +182,3 @@ TW_NO_FASTBOOT_BOOT := true
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-
-# Vibration (Disabled)
-TW_NO_VIBRATION := true
