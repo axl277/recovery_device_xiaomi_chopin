@@ -25,9 +25,6 @@ OF_CLOCK_POS := 1
 # Flashlight (Disabled)
 OF_FLASHLIGHT_ENABLE := 0
 
-# Vibration (Disabled)
-TW_NO_VIBRATION := true
-
 # Device stuff
 OF_USE_LEGACY_BATTERY_SERVICES := 1
 OF_FORCE_PREBUILT_KERNEL := 1
