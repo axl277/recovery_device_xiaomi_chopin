@@ -1,0 +1,14 @@
+//
+// Command line screenshot tool for the recovery (DRM framebuffer -> BMP).
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "chopin_screencap",
+    srcs: ["chopin_screencap.c"],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+    ],
+    recovery_available: true,
+}
