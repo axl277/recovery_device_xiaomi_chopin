@@ -1,0 +1,12 @@
+on boot
+    start aw8697.bridge
+
+# Add "--mode=N" after the binary name only if the manual test showed that the
+# driver needs a specific activate_mode (see README.md).
+service aw8697.bridge /system/bin/aw8697_haptic_bridge
+    class main
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:recovery:s0

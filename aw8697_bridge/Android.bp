@@ -1,0 +1,16 @@
+//
+// Bridges TWRP/OrangeFox vibrate() (/sys/class/leds/vibrator/*) to the aw8697
+// haptic driver of chopin (/sys/bus/i2c/devices/9-005a/*).
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "aw8697_haptic_bridge",
+    srcs: ["aw8697_haptic_bridge.c"],
+    cflags: [
+        "-Wall",
+        "-Wno-unused-parameter",
+    ],
+    recovery_available: true,
+    init_rc: ["aw8697_haptic_bridge.rc"],
+}
