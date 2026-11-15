@@ -1,8 +1,8 @@
 on boot
     start aw8697.bridge
 
-# Add "--mode=N" after the binary name only if the manual test showed that the
-# driver needs a specific activate_mode (see README.md).
+# Defaults can be changed here (e.g. add "--min=0x60 --max=0xff --pulse=70") or live
+# with tools/vib_tune.bat while the recovery is running.
 service aw8697.bridge /system/bin/aw8697_haptic_bridge
     class main
     user root

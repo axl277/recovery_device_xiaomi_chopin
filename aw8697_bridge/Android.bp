@@ -1,6 +1,6 @@
 //
-// Bridges TWRP/OrangeFox vibrate() (/sys/class/leds/vibrator/*) to the aw8697
-// haptic driver of chopin (/sys/bus/i2c/devices/9-005a/*).
+// Makes TWRP/OrangeFox vibration work on chopin and lets the vibration slider
+// control the strength (aw8697 haptic driver).
 // SPDX-License-Identifier: Apache-2.0
 //
 
