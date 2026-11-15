@@ -44,6 +44,8 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
+    aw8697_haptic_bridge.recovery \
+    chopin_screencap.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
