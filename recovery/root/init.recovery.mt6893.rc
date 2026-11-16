@@ -114,15 +114,3 @@ on property:twrp.decrypt.done=true
 on boot
     start health-hal-2-1
 
-# Vibration (AWinic aw8697, built into the kernel).
-# The kernel does not create /sys/class/leds/vibrator, which is the only node TWRP/OrangeFox
-# use to vibrate. This script exposes the driver's activate/duration attributes there.
-service aw8697-sysfs /system/bin/sh /system/bin/aw8697_sysfs.sh
-    user root
-    group root
-    oneshot
-    disabled
-    seclabel u:r:recovery:s0
-
-on boot
-    start aw8697-sysfs
