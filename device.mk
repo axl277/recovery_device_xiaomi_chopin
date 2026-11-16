@@ -82,6 +82,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(LOCAL_PATH)/security/miui_releasekey
 
-# Vibration += \
+# Vibration and screenshot
+PRODUCT_PACKAGES += \
     aw8697_haptic_bridge.recovery \
     chopin_screencap.recovery
